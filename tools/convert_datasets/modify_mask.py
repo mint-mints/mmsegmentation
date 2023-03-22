@@ -1,5 +1,6 @@
 from PIL import Image
 import os
+import numpy as np
 
 # 指定文件夹路径
 INPUT_DIR = "../../data/crack_dataset/annotation"
@@ -18,9 +19,15 @@ def process():
         # 将像素值为255的像素替换为1
         img = img.point(lambda x: 1 if x == 255 else x)
 
+        mat = np.array(img)
+        mat = mat.astype(np.uint8)
+        dst = Image.fromarray(mat, 'P')
+        bin_colormap = [0, 0, 0] + [255, 255, 255] * 254  # 二值调色板
+        dst.putpalette(bin_colormap)
+
         # 保存处理后的图片
         new_img_path = os.path.join(OUTPUT_DIR, file_name)
-        img.save(new_img_path)
+        dst.save(new_img_path)
         print('save ann_img:' + new_img_path)
 
 

@@ -22,10 +22,11 @@ class CRACKDataset(CustomDataset):
     # 如果你也是二分类，mask为单通道（8 bit）二值化的0（背景）/255（目标）图像的话,
     # 先去把图像改为0（背景）/1（目标）图像，否则能跑起来，但是指标异常，几乎全是0。（这是个大坑！！！一定要注意）
 
-    def __init__(self, **kwargs):
+    def __init__(self, split, **kwargs):
         super(CRACKDataset, self).__init__(
             img_suffix='.jpg',
             seg_map_suffix='.png',
             reduce_zero_label=False,
+            split=split,
             **kwargs)
-        assert osp.exists(self.img_dir)
+        assert osp.exists(self.img_dir) and self.split is not None
