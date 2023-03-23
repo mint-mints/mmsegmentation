@@ -3,11 +3,11 @@ dataset_type = 'CRACK500Dataset'
 data_root = 'data/CRACK500'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
-img_scale = (605, 700)
-crop_size = (128, 128)
+img_scale = (640, 360)
+crop_size = (224, 224)
 train_pipeline = [
     dict(type='LoadImageFromFile'),
-    dict(type='LoadAnnotations',reduce_zero_label=True),
+    dict(type='LoadAnnotations',reduce_zero_label=False),
     dict(type='Resize', img_scale=img_scale, ratio_range=(0.5, 2.0)),
     dict(type='RandomCrop', crop_size=crop_size, cat_max_ratio=0.75),
     dict(type='RandomFlip', prob=0.5),
