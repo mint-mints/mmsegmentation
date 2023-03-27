@@ -22,7 +22,7 @@ from .potsdam import PotsdamDataset
 from .stare import STAREDataset
 from .voc import PascalVOCDataset
 from .crack_dataset import CRACKDataset
-from  .CRACK500_dataset import CRACK500Dataset
+from  .CRACK500 import CRACK500Dataset
 
 __all__ = [
     'CustomDataset', 'build_dataloader', 'ConcatDataset', 'RepeatDataset',
