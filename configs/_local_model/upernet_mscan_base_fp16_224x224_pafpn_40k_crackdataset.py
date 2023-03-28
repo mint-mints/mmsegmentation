@@ -9,11 +9,10 @@ model = dict(
                                   dict(type='DiceLoss', loss_name='loss_dice', loss_weight=3.0)],
                      dropout_ratio=0.7
                      ),
-    # auxiliary_head=dict(in_channels=512, num_classes=2,
-    #                     loss_decode=[dict(type='CrossEntropyLoss', use_sigmoid=False, loss_name='loss_ce', loss_weight=1.0),
-    #                                  dict(type='DiceLoss', loss_name='loss_dice', loss_weight=3.0)],
-    #                     dropout_ratio=0.7
-    #                     ),
+    auxiliary_head=dict(loss_decode=[dict(type='CrossEntropyLoss', use_sigmoid=False, loss_name='loss_ce', loss_weight=1.0),
+                                     dict(type='DiceLoss', loss_name='loss_dice', loss_weight=3.0)],
+                        dropout_ratio=0.7
+                        ),
     test_cfg=dict(mode='whole'),
 )
 
