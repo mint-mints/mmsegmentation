@@ -23,6 +23,7 @@ from .stare import STAREDataset
 from .voc import PascalVOCDataset
 from .crack_dataset import CRACKDataset
 from  .CRACK500 import CRACK500Dataset
+from .CrackTree260 import CrackTree260Dataset
 
 __all__ = [
     'CustomDataset', 'build_dataloader', 'ConcatDataset', 'RepeatDataset',
@@ -33,5 +34,5 @@ __all__ = [
     'COCOStuffDataset', 'LoveDADataset', 'MultiImageMixDataset',
     'iSAIDDataset', 'ISPRSDataset', 'PotsdamDataset', 'FaceOccludedDataset',
     'ImageNetSDataset', 'LoadImageNetSAnnotations',
-    'LoadImageNetSImageFromFile','CRACKDataset','CRACK500Dataset'
+    'LoadImageNetSImageFromFile','CRACKDataset','CRACK500Dataset','CrackTree260Dataset'
 ]
