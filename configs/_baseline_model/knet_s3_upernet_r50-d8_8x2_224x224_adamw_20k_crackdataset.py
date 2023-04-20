@@ -1,6 +1,6 @@
 _base_ = [
-    '../_base_/datasets/ade20k.py', '../_base_/default_runtime.py',
-    '../_base_/schedules/schedule_80k.py'
+    '../_base_/datasets/crack_dataset.py', '../_base_/default_runtime.py',
+    '../_base_/schedules/schedule_20k.py'
 ]
 
 # model settings
@@ -28,7 +28,7 @@ model = dict(
         kernel_update_head=[
             dict(
                 type='KernelUpdateHead',
-                num_classes=150,
+                num_classes=2,
                 num_ffn_fcs=2,
                 num_heads=8,
                 num_mask_fcs=1,
@@ -56,7 +56,7 @@ model = dict(
             pool_scales=(1, 2, 3, 6),
             channels=512,
             dropout_ratio=0.1,
-            num_classes=150,
+            num_classes=2,
             norm_cfg=norm_cfg,
             align_corners=False,
             loss_decode=dict(
@@ -69,7 +69,7 @@ model = dict(
         num_convs=1,
         concat_input=False,
         dropout_ratio=0.1,
-        num_classes=150,
+        num_classes=2,
         norm_cfg=norm_cfg,
         align_corners=False,
         loss_decode=dict(
@@ -91,3 +91,4 @@ lr_config = dict(
     by_epoch=False)
 # In K-Net implementation we use batch size 2 per GPU as default
 data = dict(samples_per_gpu=2, workers_per_gpu=2)
+crop_size = (224, 224)
