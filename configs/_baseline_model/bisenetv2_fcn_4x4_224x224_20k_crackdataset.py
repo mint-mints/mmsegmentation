@@ -11,7 +11,7 @@ data = dict(
 )
 
 model = dict(
-    decode_head=dict(num_classes=2), auxiliary_head=dict(num_classes=2))
+    decode_head=dict(num_classes=2))
 crop_size = (224, 224)
 optimizer = dict(
     _delete_=True,
